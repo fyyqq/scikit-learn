@@ -1,0 +1,17 @@
+////////////            \\\\\\\\\\\\
+            Scikit Learn 
+\\\\\\\\\\\\            ////////////
+
+
+[[array]].flatten() = Dimension array to single array
+
+from sklearn.linear_model import LinearRegression = using LinearRegression
+
+model = LinearRegression()
+model.fit(data_train, data_train) = train data (data_to_train / target_result) = supervised learning
+model.predict(data_pred, data_pred) = predict data
+
+from sklearn.preprocessing import LabelBinarizer = using LabelBinarizer
+
+lb = LabelBinarizer()
+lb.fit_transform(dataset[row]) = filtering between data [0, 1]
