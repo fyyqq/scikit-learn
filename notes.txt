@@ -2,16 +2,35 @@
             Scikit Learn 
 \\\\\\\\\\\\            ////////////
 
+>>>>>>>>>>>> Linear Regression <<<<<<<<<<<<
+
+ŷ = β0 + β1X1 + β2X2 + ε
+
+# Dependent Variable = Result to predict ( ŷ )
+# Independent Variable = Data to train (X1, X2)
+# Coefficient = (β0, β1, β2)
+# Intercept = ( ε )
 
 [[array]].flatten() = Dimension array to single array
 
-from sklearn.linear_model import LinearRegression = using LinearRegression
+from sklearn.linear_model import LinearRegression
 
 model = LinearRegression()
-model.fit(data_train, data_train) = train data (data_to_train / target_result) = supervised learning
-model.predict(data_pred, data_pred) = predict data
+model.fit(data_train, data_target) = train data (data_to_train / target_result) = supervised learning
+model.predict(data_pred) = predict data
+model.score(data_train, data_target) = get accuracy of prediction
 
-from sklearn.preprocessing import LabelBinarizer = using LabelBinarizer
+from sklearn.preprocessing import LabelBinarizer
+from sklearn.preprocessing import LabelEncoder 
 
 lb = LabelBinarizer()
 lb.fit_transform(dataset[row]) = filtering between data [0, 1]
+
+le = LabelEncoder()
+le.fit_transform(dataset[column]) = filtering duplicated data [0, 1, 2]
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2) # test_size=0.6 | 60% train data | 40% test data
+x_train = 60% x data
+x_test = 40% x data
+y_train = 60% y data
+y_test = 40% y data
