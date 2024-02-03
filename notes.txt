@@ -1,10 +1,20 @@
 ////////////            \\\\\\\\\\\\
-            Scikit Learn 
+         Supervised Learning 
 \\\\\\\\\\\\            ////////////
 
->>>>>>>>>>>> Linear Regression <<<<<<<<<<<<
+////////////            \\\\\\\\\\\\
+          Linear Regression 
+\\\\\\\\\\\\            ////////////
 
-ŷ = β0 + β1X1 + β2X2 + ε
+>>> Simple Linear Regression
+
+• ŷ = a + βx
+• g(x) = a + βx
+
+>>> Multiple Linear Regression
+
+• ŷ = a + β1x1 + β2x2 + βnXn
+• g(x) = a + βx
 
 # Dependent Variable = Result to predict ( ŷ )
 # Independent Variable = Data to train (X1, X2)
@@ -13,24 +23,57 @@
 
 [[array]].flatten() = Dimension array to single array
 
+model.fit_transform() = action from model
+
 from sklearn.linear_model import LinearRegression
 
 model = LinearRegression()
-model.fit(data_train, data_target) = train data (data_to_train / target_result) = supervised learning
-model.predict(data_pred) = predict data
-model.score(data_train, data_target) = get accuracy of prediction
+model.fit(data_to_train, data_target) = train data (data_to_train / target_result)
+model.predict(data_to_pred) = predict data
+model.score(data_to_train, data_target) = get accuracy of prediction
 
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.preprocessing import LabelEncoder 
 
 lb = LabelBinarizer()
-lb.fit_transform(dataset[row]) = filtering between data [0, 1]
+lb.fit_transform(dataset[row]) = grouping data [0, 1]
 
 le = LabelEncoder()
-le.fit_transform(dataset[column]) = filtering duplicated data [0, 1, 2]
+le.fit_transform(dataset[column]) = grouping duplicated data to encoding [0, 1, 2]
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2) # test_size=0.6 | 60% train data | 40% test data
+from sklearn.preprocessing import OneHotEncoder
+
+one_hot_encoder = OneHotEncoder(sparse=False)
+one_hot_encoder.fit_transform(column_df)
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.2, test_size=0.2) # test_size=0.6 | 60% train data | 40% test data
 x_train = 60% x data
 x_test = 40% x data
 y_train = 60% y data
 y_test = 40% y data
+
+from scipy.spatial.distance import euclidean
+
+x_train = numpy.array([[1700, 0], [1600, 1]])
+x_new = numpy.array([[1640, 0]])
+
+[euclidean(x_new[0], d) for d in x_train] # distance between train
+
+////////////            \\\\\\\\\\\\
+         Logistic Regression 
+\\\\\\\\\\\\            ////////////
+
+• g(x) = sigmoid(a + βx)
+
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression() 
+model.fit(data_to_train, data_target)
+model.predict(data_to_pred)
+model.score_prob(data_to_pred) = yes or no score probability ( 0, 1 )
+
+from sklearn.datasets import load_digits
+
+digits = load_digits() = using images prediction
+pylot.gray() = figure color
+pylot.matshow(digits.images[]) = select an images
